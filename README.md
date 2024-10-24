@@ -35,7 +35,7 @@ consulta_id INT AUTO_INCREMENT PRIMARY KEY,
 	FOREIGN KEY (dentista_id) REFERENCES Dentista(dentista_id)
 );
 
--- tela 486
+
 
 CREATE TABLE Tratamento (
 tratamento_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -72,7 +72,6 @@ FOREIGN KEY (tratamento_id) REFERENCES Tratamento(tratamento_id)
 
 
 
--- tela 487
 INSERT INTO Paciente (nome, data_nascimento, telefone, endereco, email) VALUES
 ('Ana Silva', '1985-04-15', '11987654321', 'Rua das Flores, 123, Sao Paulo', 'ana. silva@email.com'),
 ('carlos Oliveira', '1990-06-30', '21987654321', 'Avenida Paulista, 456, Sao Paulo', 'carlos.oliveira@email.com'),
@@ -96,7 +95,7 @@ INSERT INTO Dentista (nome, especialidade, telefone, email) VALUES
 ('Dr. Gabriel Pereira', 'Protese Dentaria', '91912345678', 'gabriel.pereira@email.com'),
 ('Dra. Laura Ferreira', 'Radiologia', '11923456789', 'laura. ferreira@email.com');
 
--- 488
+
 INSERT INTO Consulta (paciente_id, dentista_id, data_consulta) VALUES
 (1, 1, '2024-09-10 10:00:00'),
 (2, 2, '2024-09-11 11:00:00'),
@@ -123,7 +122,6 @@ INSERT INTO Tratamento (consulta_id, descricao, data_inicio, data_fim) VALUES
 SET FOREIGN_KEY_CHECKS = 0;
 
 
--- 489
 
 INSERT INTO Procedimento (nome, custo) VALUES
 ('Limpeza Dental', 150.00),
@@ -149,7 +147,7 @@ INSERT INTO Procedimento (nome, custo) VALUES
 ('Tratamento de Gengiva', 300.00),
 ('Reparo de Prótese', 250.00);
 
--- 490
+
 
 INSERT INTO Tratamento_Procedimento (tratamento_id, procedimento_id, quantidade) VALUES
 (1, 1, 1),
@@ -175,7 +173,7 @@ INSERT INTO Pagamento (tratamento_id, valor, data_pagamento) VALUES
 (9, 300.00, '2024-09-25'),
 (10, 250.00, '2024-09-19');
 
--- 491
+
 -- consulta e joins
 /*
 	Esta consulta lista os detalhes das consultas, incluindo o nome do paciente e nome do dentista responsavel por cada consulta.
@@ -195,7 +193,7 @@ INNER JOIN
     
 
 
--- 493
+
 
 /*
 	Esta consulta fornece informaçoes sobre os pagamentos efetuados, incluindo o valor pago, a data dp pagamento e a descriçao dotratamento associado.
@@ -211,7 +209,7 @@ FROM
 INNER JOIN
 	Tratamento t ON p.tratamento_id = t.tratamento_id;
     
--- 494
+
 
 /*
 	sempre que um novo procedimento e inserio na tabela Tratamento_procedimento,
@@ -238,7 +236,7 @@ BEGIN
     END//
     DELIMITER ; 
     
--- 496
+
 
 /*
 Vamos criar uma procedure para gerar um relatorio de todas as consultas de um paciente especifico, incluindo informacoes sobre o paciente,
